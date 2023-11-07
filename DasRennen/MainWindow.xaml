@@ -1,0 +1,75 @@
+﻿<Window x:Class="DasRennen.MainWindow"
+ xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+ xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+ xmlns:local="clr-namespace:DasRennen"
+ mc:Ignorable="d"
+ Title="The Race" Height="500" Width="800">
+    <Window.Background>
+        <ImageBrush ImageSource="/raceTrack.png" Stretch="None" AlignmentY="Top"/>
+    </Window.Background>
+    <Grid>
+        <Canvas x:Name="canvasRacing" HorizontalAlignment="Left" Height="363"
+VerticalAlignment="Top" Width="800" Margin="0,0,-4,0">
+            <Rectangle x:Name="rectangleGreen" Height="20" Stroke="Black" Width="40" Canvas.Left="0"
+Canvas.Top="0">
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="/greenCar.jpg"/>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Rectangle x:Name="rectangleRed" Height="20" Stroke="Black" Width="40" Canvas.Left="0"
+Canvas.Top="0">
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="/redCar.png"/>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Grid Height="100" Canvas.Left="0" Canvas.Top="375" Width="800">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="279*"/>
+                    <ColumnDefinition Width="93*"/>
+                    <ColumnDefinition Width="25*"/>
+                    <ColumnDefinition Width="38*"/>
+                    <ColumnDefinition Width="123*"/>
+                    <ColumnDefinition Width="36*"/>
+                    <ColumnDefinition Width="35*"/>
+                    <ColumnDefinition Width="10*"/>
+                    <ColumnDefinition Width="161*"/>
+                </Grid.ColumnDefinitions>
+                <Slider x:Name="sliderSteer" Margin="40,34,0,0" VerticalAlignment="Top"
+Maximum="180" Height="19" Width="360" SmallChange="1" 
+HorizontalAlignment="Left" Minimum="-180" ValueChanged="sliderSteer_ValueChanged" RenderTransformOrigin="0.499,1.949" Grid.ColumnSpan="4">
+                    <Slider.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleY="1"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Slider.RenderTransform>
+                </Slider>
+                <Button x:Name="button" Content="Backwards" HorizontalAlignment="Left"
+Margin="15,41,0,0" VerticalAlignment="Top" Width="100" FontSize="20" Click="button_Click" RenderTransformOrigin="0.514,1.684" Grid.Column="4" />
+                <Button x:Name="button1" Content="Forwards" HorizontalAlignment="Left"
+Margin="11,40,0,0" VerticalAlignment="Top" Width="100" FontSize="20" Click="button1_Click" Grid.Column="8" />
+                <Label x:Name="labelSteer" Content="Steer" HorizontalAlignment="Left"
+Margin="125,48,0,0" VerticalAlignment="Top" Foreground="#FFFF5100" FontSize="24" RenderTransformOrigin="0.496,1.194"/>
+                <Label x:Name="labelDrive" Content="Drive" Margin="12,34,155,0"
+VerticalAlignment="Top" Foreground="#FFFF5100" FontSize="24" RenderTransformOrigin="0.567,0.988" Grid.Column="5" Grid.ColumnSpan="4"/>
+                <Button x:Name="StartButton" Content="Start" HorizontalAlignment="Left" Margin="45,-7,0,0" VerticalAlignment="Top" FontSize="20
+                        " Click="StartButton_Click" Grid.Column="4"/>
+                <Button x:Name="StopButton" Content="Stop" HorizontalAlignment="Left" Margin="35,-7,0,0" VerticalAlignment="Top" FontSize="20                         " RenderTransformOrigin="3.891,0.639" Click="StopButton_Click" Grid.Column="8"/>
+                <ComboBox x:Name="selectedComboBox" HorizontalAlignment="Left" Margin="276,8,0,0" VerticalAlignment="Top" Width="120" SelectedIndex="0" Grid.ColumnSpan="3">
+                    <ComboBoxItem Content="greenCar" FontSize="18"/>
+                    <ComboBoxItem Content="redCar" FontSize="14"/>
+                </ComboBox>
+
+                <Slider x:Name="sliderSpeed" Margin="10,-15,10,0" VerticalAlignment="Top"
+        Minimum="1" Maximum="10" Value="3" SmallChange="1"
+        ValueChanged="sliderSpeed_ValueChanged" Grid.ColumnSpan="2" />
+            </Grid>
+        </Canvas>
+        <TextBlock HorizontalAlignment="Left" Margin="135,368,0,0" TextWrapping="Wrap" Text="Speed" VerticalAlignment="Top" Foreground="#FF40AAB1" FontSize="20" RenderTransformOrigin="-3.232,0.315" Height="24" Width="66"/>
+    </Grid>
+</Window>
+
